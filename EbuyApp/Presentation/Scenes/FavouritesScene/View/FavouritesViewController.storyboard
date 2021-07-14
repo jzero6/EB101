@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,11 +16,95 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOP-xe-vMu">
+                                <rect key="frame" x="153.5" y="74" width="107.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" name="Color-5"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56q-jF-ht0">
+                                <rect key="frame" x="20" y="72" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="Y7R-YG-UwT"/>
+                                    <constraint firstAttribute="width" constant="26" id="aAK-uI-9LT"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="ic-backArrow">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="waq-b3-qTj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhX-gU-DCG">
+                                <rect key="frame" x="368" y="72" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="2tH-3o-EPf"/>
+                                    <constraint firstAttribute="width" constant="26" id="zZZ-n3-h43"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="ic-bucket">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="cardButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yeE-5U-BPD"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JUE-hH-HO1">
+                                <rect key="frame" x="20" y="118" width="374" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yky-YD-U3S">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="All Items">
+                                            <color key="titleColor" name="firstColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="allItemsButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="XZ2-Ef-Mq0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yko-W9-PLY">
+                                        <rect key="frame" x="197" y="0.0" width="177" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Boards">
+                                            <color key="titleColor" name="Color-4"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="boardsButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="E9W-Zb-AEL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QBr-bB-kbm"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="esM-O7-r3D">
+                                <rect key="frame" x="0.0" y="168" width="414" height="645"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bhX-gU-DCG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="28" id="EvJ-AU-rwY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bhX-gU-DCG" secondAttribute="trailing" constant="20" id="HPo-b3-eFI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="JUE-hH-HO1" secondAttribute="trailing" constant="20" id="Jnp-lu-Uup"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="esM-O7-r3D" secondAttribute="trailing" id="Mfz-r1-GGe"/>
+                            <constraint firstItem="esM-O7-r3D" firstAttribute="top" secondItem="JUE-hH-HO1" secondAttribute="bottom" constant="20" id="N07-MJ-O1p"/>
+                            <constraint firstItem="NOP-xe-vMu" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ROd-Db-Be3"/>
+                            <constraint firstItem="NOP-xe-vMu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="WDN-UB-yuf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="esM-O7-r3D" secondAttribute="bottom" id="Xfs-3a-9K4"/>
+                            <constraint firstItem="esM-O7-r3D" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gDA-LT-FTQ"/>
+                            <constraint firstItem="JUE-hH-HO1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="gEC-eh-v4w"/>
+                            <constraint firstItem="56q-jF-ht0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="28" id="j0A-g8-6TA"/>
+                            <constraint firstItem="JUE-hH-HO1" firstAttribute="top" secondItem="NOP-xe-vMu" secondAttribute="bottom" constant="20" id="oDq-F9-29h"/>
+                            <constraint firstItem="56q-jF-ht0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="vX5-at-WaC"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="ic-heart" id="EEb-Ko-LA8"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="esM-O7-r3D" id="7OR-lX-83A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -27,7 +112,18 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic-backArrow" width="24" height="23"/>
+        <image name="ic-bucket" width="24" height="24"/>
         <image name="ic-heart" width="24" height="24"/>
+        <namedColor name="Color-4">
+            <color red="0.61599999666213989" green="0.62000000476837158" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color-5">
+            <color red="0.15299999713897705" green="0.14100000262260437" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="firstColor">
+            <color red="0.56099998950958252" green="0.37299999594688416" blue="0.2630000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

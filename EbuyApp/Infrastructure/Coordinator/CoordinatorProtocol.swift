@@ -10,6 +10,11 @@ import UIKit
 protocol CoordinatorProtocol: AnyObject {
     
     var productsManager: ProductsManagerProtocol? { get }
+    var someProductsManager: SomeProductsManagerProtocol? { get }
+    var recentlyViewedManager: RecentlyViewedManagerProtocol? { get }
+    var savedItemsManager: SavedItemsManagerProtocol? { get }
+    var brandsUMayLikeManager: BrandsUMayLikeManagerProtocol? { get }
+    var stylesBasedManager: StylesBasedManagerProtocol? { get }
     
     init(_ window: UIWindow?, navigationController: UINavigationController?)
     
@@ -22,6 +27,26 @@ protocol CoordinatorProtocol: AnyObject {
 
 extension CoordinatorProtocol {
     var productsManager: ProductsManagerProtocol? {
+        set { print("") }
+        get { nil }
+    }
+    var someProductsManager: SomeProductsManagerProtocol? {
+        set { print("") }
+        get { nil }
+    }
+    var recentlyViewedManager: RecentlyViewedManagerProtocol? {
+        set { print("") }
+        get { nil }
+    }
+    var savedItemsManager: SavedItemsManagerProtocol? {
+        set { print("") }
+        get { nil }
+    }
+    var brandsUMayLikeManager: BrandsUMayLikeManagerProtocol? {
+        set { print("") }
+        get { nil }
+    }
+    var stylesBasedManager: StylesBasedManagerProtocol? {
         set { print("") }
         get { nil }
     }

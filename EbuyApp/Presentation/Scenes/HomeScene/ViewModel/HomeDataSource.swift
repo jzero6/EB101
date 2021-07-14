@@ -48,7 +48,7 @@ class HomeDataSource: NSObject, UITableViewDataSource{
         }
         if indexPath.row == 1 {
             let cell = tableView.deque(SomeProductsCell.self, for: indexPath)
-            cell.configure(with: products, coordinator: viewModel.controller.coordinator!)
+            cell.configure(coordinator: viewModel.controller.coordinator!)
             return cell
         }
         if indexPath.row == 2 {
@@ -68,22 +68,22 @@ class HomeDataSource: NSObject, UITableViewDataSource{
         }
         if indexPath.row == 5 {
             let cell = tableView.deque(RecentlyViewedCell.self, for: indexPath)
-            cell.configure(with: products, coordinator: viewModel.controller.coordinator!)
+            cell.configure(coordinator: viewModel.controller.coordinator!)
             return cell
         }
         if indexPath.row == 6 {
             let cell = tableView.deque(SavedItemsCell.self, for: indexPath)
-            cell.configure(with: products, coordinator: viewModel.controller.coordinator!)
+            cell.configure(coordinator: viewModel.controller.coordinator!)
             return cell
         }
         if indexPath.row == 7 {
             let cell = tableView.deque(BrandsUMayLikeCell.self, for: indexPath)
-            cell.configure(with: products, coordinator: viewModel.controller.coordinator!)
+            cell.configure(coordinator: viewModel.controller.coordinator!)
             return cell
         }
         if indexPath.row == 8 {
             let cell = tableView.deque(StylesBasedCell.self, for: indexPath)
-            cell.configure(with: products, coordinator: viewModel.controller.coordinator!)
+            cell.configure(coordinator: viewModel.controller.coordinator!)
             return cell
         }
         return .init()

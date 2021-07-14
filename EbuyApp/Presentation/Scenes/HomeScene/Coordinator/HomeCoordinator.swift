@@ -10,6 +10,11 @@ import UIKit
 final class HomeCoordinator: CoordinatorProtocol {
 
     var productsManager: ProductsManagerProtocol?
+    var someProductsManager: SomeProductsManagerProtocol?
+    var recentlyViewedManager: RecentlyViewedManagerProtocol?
+    var savedItemsManager: SavedItemsManagerProtocol?
+    var brandsUMayLikeManager: BrandsUMayLikeManagerProtocol?
+    var stylesBasedManager: StylesBasedManagerProtocol? 
     var navigationController: UINavigationController?
     
     init(_ window: UIWindow? = nil, navigationController: UINavigationController? = UINavigationController()) {
@@ -20,6 +25,11 @@ final class HomeCoordinator: CoordinatorProtocol {
         vc.coordinator = self
         self.navigationController?.viewControllers = [vc]
         productsManager = ProductsManager()
+        someProductsManager = SomeProductsManager()
+        recentlyViewedManager = RecentlyViewedManager()
+        savedItemsManager = SavedItemsManager()
+        brandsUMayLikeManager = BrandsUMayLikeManager()
+        stylesBasedManager = StylesBasedManager()
     }
 
     func start() {}
