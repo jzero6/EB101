@@ -19,7 +19,6 @@ class FilterViewController: BaseViewController {
         super.viewDidLoad()
 
         bgView.setupShadow(UIView: bgView, ViewCornerRadius: 10, shadowOffSet: CGSize(width: 0, height: 2), opacity: 0.1, shadowRadius: 4)
-        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         setupLayout()
         configureViewModel()
     }

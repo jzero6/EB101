@@ -10,6 +10,7 @@ import UIKit
 class TabBarController: UITabBarController, Storyboarded, CoordinatorDelegate  {
 
     private var homeCoordinator = HomeCoordinator()
+    private var favouritesCoordinator = FavouritesCoordinator()
     
     var coordinator: CoordinatorProtocol?
     
@@ -17,6 +18,7 @@ class TabBarController: UITabBarController, Storyboarded, CoordinatorDelegate  {
         super.viewDidLoad()
 
         self.viewControllers![0] = homeCoordinator.navigationController!
+        self.viewControllers![3] = favouritesCoordinator.navigationController!
     }
     
 }

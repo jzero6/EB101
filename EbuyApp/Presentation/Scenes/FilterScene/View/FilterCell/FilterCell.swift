@@ -9,15 +9,23 @@ import UIKit
 
 class FilterCell: UITableViewCell {
 
+    @IBOutlet weak var allBut: UIButton!
+    @IBOutlet weak var filterlistLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+    }
+    @IBAction func allButton(_ sender: Any) {
+    }
+    
+    func configure(with item: String, allButton: String){
+        filterlistLabel.text = item
+        allBut.setTitle(allButton, for: .normal)
     }
     
 }

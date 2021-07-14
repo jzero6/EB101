@@ -49,9 +49,15 @@ final class HomeCoordinator: CoordinatorProtocol {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func ProceedToFilterVC(){
+    func proceedToFilterVC(){
         let vc = FilterViewController.instantiateFromStoryboard()
         vc.coordinator = self
         navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
+    func proceedToFavouritesVC(){
+        let vc = NewTrendViewController.instantiateFromStoryboard()
+        vc.coordinator = self
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -17,7 +17,6 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = true
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         setupLayout()
         configureViewModel()

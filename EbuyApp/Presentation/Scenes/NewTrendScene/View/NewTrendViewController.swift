@@ -34,7 +34,7 @@ class NewTrendViewController: BaseViewController {
         coordinator?.proceedToCardVC()
     }
     @IBAction func filterButton(_ sender: Any) {
-        coordinator?.ProceedToFilterVC()
+        coordinator?.proceedToFilterVC()
     }
     @IBAction func sortButton(_ sender: Any) {
         

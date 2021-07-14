@@ -11,6 +11,7 @@ class FilterDataSource: NSObject, UITableViewDataSource{
     
     private var tableView: UITableView!
     private var viewModel: FilterViewModelProtocol!
+    private var filterList = ["Gender", "Product type", "Style", "Leather / Non Leather", "Color", "Brand", "Body fit", "Size", "Price"]
     
     init(with tableView: UITableView, viewModel: FilterViewModelProtocol) {
         super.init()
@@ -23,15 +24,19 @@ class FilterDataSource: NSObject, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return filterList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.deque(FilterCell.self, for: indexPath)
+        if indexPath.row == 8 {
+            cell.configure(with: filterList[indexPath.row], allButton: "$8 - $316")
+        } else {
+            cell.configure(with: filterList[indexPath.row], allButton: "All")
+        }
         return cell
     }
 }
-
 
 extension FilterDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

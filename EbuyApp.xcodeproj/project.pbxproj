@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		074CB95A269F1341009FFBBA /* FavouritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CB959269F1341009FFBBA /* FavouritesDataSource.swift */; };
+		074CB95C269F134C009FFBBA /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CB95B269F134C009FFBBA /* FavouritesViewModel.swift */; };
+		074CB95E269F1971009FFBBA /* FavouritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CB95D269F1971009FFBBA /* FavouritesManager.swift */; };
+		074CB960269F19B6009FFBBA /* FavouritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CB95F269F19B6009FFBBA /* FavouritesModel.swift */; };
+		074CB963269F1ABA009FFBBA /* FavouritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074CB962269F1ABA009FFBBA /* FavouritesCoordinator.swift */; };
 		07BA4B65269EDE4A0095BA0F /* SomeProductsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA4B64269EDE4A0095BA0F /* SomeProductsDataSource.swift */; };
 		07BA4B67269EDE540095BA0F /* SomeProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA4B66269EDE540095BA0F /* SomeProductsViewModel.swift */; };
 		07BA4B6B269EDF0F0095BA0F /* RecentlyViewedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA4B6A269EDF0F0095BA0F /* RecentlyViewedDataSource.swift */; };
@@ -99,6 +104,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		074CB959269F1341009FFBBA /* FavouritesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesDataSource.swift; sourceTree = "<group>"; };
+		074CB95B269F134C009FFBBA /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
+		074CB95D269F1971009FFBBA /* FavouritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesManager.swift; sourceTree = "<group>"; };
+		074CB95F269F19B6009FFBBA /* FavouritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesModel.swift; sourceTree = "<group>"; };
+		074CB962269F1ABA009FFBBA /* FavouritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCoordinator.swift; sourceTree = "<group>"; };
 		07BA4B64269EDE4A0095BA0F /* SomeProductsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeProductsDataSource.swift; sourceTree = "<group>"; };
 		07BA4B66269EDE540095BA0F /* SomeProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeProductsViewModel.swift; sourceTree = "<group>"; };
 		07BA4B6A269EDF0F0095BA0F /* RecentlyViewedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyViewedDataSource.swift; sourceTree = "<group>"; };
@@ -203,6 +213,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		074CB961269F1AA8009FFBBA /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				074CB962269F1ABA009FFBBA /* FavouritesCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		07BA4B62269EDE270095BA0F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +325,7 @@
 				07BA4B8B269EE3D20095BA0F /* SavedItemsManager.swift */,
 				07BA4B8F269EE4A20095BA0F /* BrandsUMayLikeManager.swift */,
 				07BA4B93269EE5E60095BA0F /* StylesBasedManager.swift */,
+				074CB95D269F1971009FFBBA /* FavouritesManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -323,6 +342,8 @@
 		07ECFE10269EF29600B99DEE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				074CB959269F1341009FFBBA /* FavouritesDataSource.swift */,
+				074CB95B269F134C009FFBBA /* FavouritesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -485,6 +506,7 @@
 		07FEE9C0269DB2E800AB6BBD /* FavouritesScene */ = {
 			isa = PBXGroup;
 			children = (
+				074CB961269F1AA8009FFBBA /* Coordinator */,
 				07ECFE10269EF29600B99DEE /* ViewModel */,
 				07FEEA4E269E27C700AB6BBD /* View */,
 			);
@@ -540,6 +562,7 @@
 				07BA4B8D269EE3D90095BA0F /* SavedItemsModel.swift */,
 				07BA4B91269EE4AE0095BA0F /* BrandsUMayLikeModel.swift */,
 				07BA4B95269EE5F20095BA0F /* StylesBasedModel.swift */,
+				074CB95F269F19B6009FFBBA /* FavouritesModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -873,6 +896,7 @@
 				07FEE9C8269DB37E00AB6BBD /* SearchViewController.swift in Sources */,
 				07FEE9BC269DB0FE00AB6BBD /* BaseViewController.swift in Sources */,
 				07BA4B88269EE3320095BA0F /* RecentlyViewedManager.swift in Sources */,
+				074CB95E269F1971009FFBBA /* FavouritesManager.swift in Sources */,
 				07FEEA1C269DEFD000AB6BBD /* BrandsUMayLikeCell.swift in Sources */,
 				07BA4B67269EDE540095BA0F /* SomeProductsViewModel.swift in Sources */,
 				07BA4B6B269EDF0F0095BA0F /* RecentlyViewedDataSource.swift in Sources */,
@@ -886,6 +910,7 @@
 				07ECFE0E269EF28F00B99DEE /* FavouritesCell.swift in Sources */,
 				07FEE9B3269DB06300AB6BBD /* AppCoordinator.swift in Sources */,
 				07FEE9E9269DC0BD00AB6BBD /* ProductModel.swift in Sources */,
+				074CB95A269F1341009FFBBA /* FavouritesDataSource.swift in Sources */,
 				07FEE9AB269DAFCD00AB6BBD /* UICollectionViewCell+Extension.swift in Sources */,
 				07BA4B8C269EE3D20095BA0F /* SavedItemsManager.swift in Sources */,
 				07FEE9E3269DBE4800AB6BBD /* HomeDataSource.swift in Sources */,
@@ -893,6 +918,7 @@
 				07BA4B6D269EDF170095BA0F /* RecentlyViewedViewModel.swift in Sources */,
 				07BA4B81269EDFC00095BA0F /* StylesBasedViewModel.swift in Sources */,
 				07FEEA0D269DE18B00AB6BBD /* RecentlyViewedItemCell.swift in Sources */,
+				074CB963269F1ABA009FFBBA /* FavouritesCoordinator.swift in Sources */,
 				07BA4B86269EE09F0095BA0F /* SomeProductsModel.swift in Sources */,
 				07BA4B71269EDF360095BA0F /* SavedItemsDataSource.swift in Sources */,
 				07FEE9D4269DB3D000AB6BBD /* AccountViewController.swift in Sources */,
@@ -903,6 +929,7 @@
 				07FEE9AF269DB03300AB6BBD /* CoordinatorDelegate.swift in Sources */,
 				07FEE9AD269DB00D00AB6BBD /* NetworkManager.swift in Sources */,
 				07FEEA3B269E1AF000AB6BBD /* NewTrendDataSource.swift in Sources */,
+				074CB95C269F134C009FFBBA /* FavouritesViewModel.swift in Sources */,
 				07FEE9B1269DB04300AB6BBD /* CoordinatorProtocol.swift in Sources */,
 				07FEE9B5269DB08800AB6BBD /* Storyboarded.swift in Sources */,
 				07FEE989269DAEFC00AB6BBD /* SceneDelegate.swift in Sources */,
@@ -910,6 +937,7 @@
 				07BA4B73269EDF3C0095BA0F /* SavedItemsViewModel.swift in Sources */,
 				07FEE9CC269DB39800AB6BBD /* CardViewController.swift in Sources */,
 				07FEEA4B269E27B400AB6BBD /* FilterCell.swift in Sources */,
+				074CB960269F19B6009FFBBA /* FavouritesModel.swift in Sources */,
 				07BA4B90269EE4A20095BA0F /* BrandsUMayLikeManager.swift in Sources */,
 				07FEE9E1269DBD6D00AB6BBD /* UIView+Extension.swift in Sources */,
 				07FEE9B7269DB0CB00AB6BBD /* TabBarController.swift in Sources */,

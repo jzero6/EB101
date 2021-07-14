@@ -15,6 +15,7 @@ protocol CoordinatorProtocol: AnyObject {
     var savedItemsManager: SavedItemsManagerProtocol? { get }
     var brandsUMayLikeManager: BrandsUMayLikeManagerProtocol? { get }
     var stylesBasedManager: StylesBasedManagerProtocol? { get }
+    var favouritesManager: FavouritesManagerProtocol? { get }
     
     init(_ window: UIWindow?, navigationController: UINavigationController?)
     
@@ -22,7 +23,8 @@ protocol CoordinatorProtocol: AnyObject {
     func getBack()
     func proceedToCardVC()
     func proceedToNewTrendVC(with products: [ProductModel], coordinator: CoordinatorProtocol)
-    func ProceedToFilterVC()
+    func proceedToFilterVC()
+    func proceedToFavouritesVC()
 }
 
 extension CoordinatorProtocol {
@@ -50,9 +52,14 @@ extension CoordinatorProtocol {
         set { print("") }
         get { nil }
     }
+    var favouritesManager: FavouritesManagerProtocol? {
+        set { print("") }
+        get { nil }
+    }
     
     func getBack(){}
     func proceedToNewTrendVC(with products: [ProductModel], coordinator: CoordinatorProtocol){}
     func proceedToCardVC(){}
-    func ProceedToFilterVC(){}
+    func proceedToFilterVC(){}
+    func proceedToFavouritesVC(){}
 }

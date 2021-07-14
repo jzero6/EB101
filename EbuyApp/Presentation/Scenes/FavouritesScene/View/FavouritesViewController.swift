@@ -10,10 +10,16 @@ import UIKit
 class FavouritesViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
+
+    private var dataSource: FavouritesDataSource!
+    private var viewModel:  FavouritesViewModelProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        setupLayout()
+        configureViewModel()
     }
     
     @IBAction func allItemsButton(_ sender: Any) {
@@ -25,5 +31,15 @@ class FavouritesViewController: BaseViewController {
     @IBAction func backButton(_ sender: Any) {
     }
     
+    
+    private func setupLayout() {
+        tableView.registerNib(class: FavouritesCell.self)
+    }
+    
+    private func configureViewModel() {
+        viewModel = FavouritesViewModel(controller: self)
+        dataSource = FavouritesDataSource(with: tableView, viewModel: viewModel)
+        dataSource.refresh()
+    }
 
 }

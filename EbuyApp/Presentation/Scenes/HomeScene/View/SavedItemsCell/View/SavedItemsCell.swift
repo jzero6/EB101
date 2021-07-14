@@ -29,6 +29,7 @@ class SavedItemsCell: UITableViewCell {
     }
     
     @IBAction func viewAllButton(_ sender: Any) {
+        coordinator?.proceedToFavouritesVC()
     }
     
     
