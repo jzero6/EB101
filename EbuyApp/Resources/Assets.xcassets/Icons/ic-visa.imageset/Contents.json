@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic-visa.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

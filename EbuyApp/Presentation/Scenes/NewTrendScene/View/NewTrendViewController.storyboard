@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--New Trend View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="NewTrendViewController" id="Y6W-OH-hqX" customClass="NewTrendViewController" customModule="EbuyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Trend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9o-F1-V9n">
+                                <rect key="frame" x="160" y="84" width="94.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" name="Color-5"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6h4-Hm-bbt">
+                                <rect key="frame" x="20" y="82" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="0FY-Lt-idl"/>
+                                    <constraint firstAttribute="width" constant="26" id="5IV-rL-K69"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="ic-backArrow">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="f1i-mp-lzd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cL7-F3-G9z">
+                                <rect key="frame" x="368" y="82" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="PMk-lZ-iw3"/>
+                                    <constraint firstAttribute="width" constant="26" id="dTc-KX-xCG"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="ic-bucket">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="cardButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1PL-2e-ip4"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YH2-F3-ZRS">
+                                <rect key="frame" x="20" y="128" width="374" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ego-tA-MxF">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="  Sort" image="ic-sort">
+                                            <color key="titleColor" name="Color"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sortButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ugB-3V-16O"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ras-mc-9Ds">
+                                        <rect key="frame" x="197" y="0.0" width="177" height="36"/>
+                                        <state key="normal" title="  Filter" image="ic-filter">
+                                            <color key="titleColor" name="Color"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="filterButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="a4X-Sm-ESb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="qQd-e8-91N"/>
+                                </constraints>
+                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fIA-R0-sfF">
+                                <rect key="frame" x="0.0" y="184" width="414" height="678"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fRy-QL-zW1">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JpS-Tv-gjx">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="soe-MB-VeL">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cL7-F3-G9z" secondAttribute="trailing" constant="20" id="1eR-je-gYQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fIA-R0-sfF" secondAttribute="trailing" id="3Ms-GG-p7u"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YH2-F3-ZRS" secondAttribute="trailing" constant="20" id="DD8-JA-SCh"/>
+                            <constraint firstItem="cL7-F3-G9z" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="38" id="EN8-VY-glE"/>
+                            <constraint firstItem="fIA-R0-sfF" firstAttribute="top" secondItem="YH2-F3-ZRS" secondAttribute="bottom" constant="20" id="Fl9-1d-NEu"/>
+                            <constraint firstItem="fIA-R0-sfF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="JkA-UH-u9h"/>
+                            <constraint firstItem="6h4-Hm-bbt" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="38" id="Kv6-rw-ggy"/>
+                            <constraint firstItem="6h4-Hm-bbt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Xw7-IX-ewL"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="fIA-R0-sfF" secondAttribute="bottom" id="Z3r-y2-aY7"/>
+                            <constraint firstItem="f9o-F1-V9n" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="erb-6y-qco"/>
+                            <constraint firstItem="YH2-F3-ZRS" firstAttribute="top" secondItem="f9o-F1-V9n" secondAttribute="bottom" constant="20" id="iYv-yk-7dQ"/>
+                            <constraint firstItem="YH2-F3-ZRS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="nru-mn-UNK"/>
+                            <constraint firstItem="f9o-F1-V9n" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="qsn-jH-6HM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="fIA-R0-sfF" id="kV6-ch-9jp"/>
+                        <outlet property="filterOutlet" destination="Ras-mc-9Ds" id="EK2-Vk-c10"/>
+                        <outlet property="sortOutlet" destination="ego-tA-MxF" id="jXD-Ql-Iol"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="31"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic-backArrow" width="24" height="23"/>
+        <image name="ic-bucket" width="24" height="24"/>
+        <image name="ic-filter" width="20" height="20"/>
+        <image name="ic-sort" width="20" height="20"/>
+        <namedColor name="Color">
+            <color red="0.56099998950958252" green="0.37299999594688416" blue="0.2630000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color-5">
+            <color red="0.15299999713897705" green="0.14100000262260437" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

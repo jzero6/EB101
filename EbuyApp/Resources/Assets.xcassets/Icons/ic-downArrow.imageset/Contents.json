@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic-downArrow.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

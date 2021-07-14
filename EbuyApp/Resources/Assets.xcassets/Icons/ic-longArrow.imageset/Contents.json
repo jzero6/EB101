@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic-longArrow.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
