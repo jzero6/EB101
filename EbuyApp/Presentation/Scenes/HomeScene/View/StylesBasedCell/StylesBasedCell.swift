@@ -1,5 +1,5 @@
 //
-//  SavedItemsCell.swift
+//  StylesBasedCell.swift
 //  EbuyApp
 //
 //  Created by Nana Jimsheleishvili on 13.07.21.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-class SavedItemsCell: UITableViewCell {
-    
-    @IBOutlet weak var savedItemLabel: UILabel!
+class StylesBasedCell: UITableViewCell, TableCellConfigurable  {
+
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Private Variables
-    private var dataSource: SavedItemsDataSource!
-    private var viewModel: SavedItemsViewModelProtocol!
+    private var dataSource: HomeCollectionViewDataSource!
+    private var viewModel: HomeCollectionViewModelProtocol!
     var coordinator: CoordinatorProtocol?
     
     override func awakeFromNib() {
@@ -27,41 +27,36 @@ class SavedItemsCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-    @IBAction func viewAllButton(_ sender: Any) {
-        coordinator?.proceedToFavouritesVC()
-    }
-    
-    
-    func configure(coordinator: CoordinatorProtocol) {
+
+    func configure(with coordinator: CoordinatorProtocol) {
         self.coordinator = coordinator
         configureDataSource()
     }
     
     // MARK: - Setup
     private func setupLayout() {
-        collectionView.registerNib(class: SavedItemsItemCell.self)
+        collectionView.registerNib(class: StylesBasedItemCell.self)
     }
     
     private func configureDataSource() {
-        viewModel = SavedItemsViewModel(coordinator: coordinator!)
-        dataSource = SavedItemsDataSource(with: collectionView, viewModel: viewModel)
-        dataSource.refresh()
+        viewModel = HomeCollectionViewModel(coordinator: coordinator!)
+        dataSource = HomeCollectionViewDataSource(with: collectionView, viewModel: viewModel)
+        dataSource.refreshStylesProducts()
     }
     
     private func setUpCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.size.width - 40, height: 120)
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 20 , bottom: 0, right: UIScreen.main.bounds.size.width - 20)
-        layout.minimumLineSpacing = 20
+        layout.itemSize = CGSize(width: 170, height: 210)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 20 , bottom: 0, right: 20)
+        layout.minimumLineSpacing = 16
         collectionView.collectionViewLayout = layout
         collectionView.isPagingEnabled = true
     }
 }
 
-extension SavedItemsCell: UICollectionViewDelegateFlowLayout {
+extension StylesBasedCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.size.width - 40, height: 120)
+        return CGSize(width: 170, height: 210)
     }
 }

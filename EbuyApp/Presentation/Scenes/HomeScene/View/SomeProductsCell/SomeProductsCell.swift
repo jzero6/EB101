@@ -7,13 +7,13 @@
 
 import UIKit
 
-class SomeProductsCell: UITableViewCell {
+class SomeProductsCell: UITableViewCell, TableCellConfigurable  {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Private Variables
-    private var dataSource: SomeProductsDataSource!
-    private var viewModel: SomeProductsViewModelProtocol!
+    private var dataSource: HomeCollectionViewDataSource!
+    private var viewModel: HomeCollectionViewModelProtocol!
     var coordinator: CoordinatorProtocol?
     
     override func awakeFromNib() {
@@ -27,7 +27,7 @@ class SomeProductsCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(coordinator: CoordinatorProtocol) {
+    func configure(with coordinator: CoordinatorProtocol) {
         self.coordinator = coordinator
         configureDataSource()
     }
@@ -38,9 +38,9 @@ class SomeProductsCell: UITableViewCell {
     }
     
     private func configureDataSource() {
-        viewModel = SomeProductsViewModel(coordinator: coordinator!)
-        dataSource = SomeProductsDataSource(with: collectionView, viewModel: viewModel)
-        dataSource.refresh()
+        viewModel = HomeCollectionViewModel(coordinator: coordinator!)
+        dataSource = HomeCollectionViewDataSource(with: collectionView, viewModel: viewModel)
+        dataSource.refreshSomeProducts()
     }
     
     private func setUpCollectionView() {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SavedItemsItemCell: UICollectionViewCell {
+class SavedItemsItemCell: UICollectionViewCell, CollectionViewCellConfigurable {
 
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var productImageView: UIImageView!
@@ -25,9 +25,11 @@ class SavedItemsItemCell: UICollectionViewCell {
         bgView.setupShadow(UIView: bgView, ViewCornerRadius: 10, shadowOffSet: CGSize(width: 0, height: 2), opacity: 0.1, shadowRadius: 4)
     }
 
-    func configure(with item: SavedItemsModel){
-        titleLabel.text = item.name
-        priceLabel.text = item.price
-        productImageView.kf.setImage( with: URL(string: item.image ?? ""))
+    func configure(with item: CellItem) {
+        guard let model = item as? CellViewModel,
+              let data = model.userData[.data] as? SavedItemsModel else { return }
+        titleLabel.text = data.name
+        priceLabel.text = data.price
+        productImageView.kf.setImage( with: URL(string: data.image ?? ""))
     }
 }

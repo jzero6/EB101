@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BrandsUMayLikeItemCell: UICollectionViewCell {
+class BrandsUMayLikeItemCell: UICollectionViewCell, CollectionViewCellConfigurable {
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -23,5 +23,11 @@ class BrandsUMayLikeItemCell: UICollectionViewCell {
 
     func configure(with item: BrandsUMayLikeModel){
         titleLabel.text = item.name
+    }
+    
+    func configure(with item: CellItem) {
+        guard let model = item as? CellViewModel,
+              let data = model.userData[.data] as? BrandsUMayLikeModel else { return }
+        titleLabel.text = data.name
     }
 }

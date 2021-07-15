@@ -1,5 +1,5 @@
 //
-//  BrandsUMayLikeCell.swift
+//  SavedItemsCell.swift
 //  EbuyApp
 //
 //  Created by Nana Jimsheleishvili on 13.07.21.
@@ -7,55 +7,61 @@
 
 import UIKit
 
-class BrandsUMayLikeCell: UITableViewCell {
-    @IBOutlet weak var titleLabel: UILabel!
+class SavedItemsCell: UITableViewCell, TableCellConfigurable  {
+    
+    @IBOutlet weak var savedItemLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Private Variables
-    private var dataSource: BrandsUMayLikeDataSource!
-    private var viewModel: BrandsUMayLikeViewModelProtocol!
+    private var dataSource: HomeCollectionViewDataSource!
+    private var viewModel: HomeCollectionViewModelProtocol!
     var coordinator: CoordinatorProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setupLayout()
-        //setUpCollectionView()
+        setUpCollectionView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
-    func configure(coordinator: CoordinatorProtocol) {
+    
+    @IBAction func viewAllButton(_ sender: Any) {
+        coordinator?.proceedToFavouritesVC()
+    }
+    
+    
+    func configure(with coordinator: CoordinatorProtocol) {
         self.coordinator = coordinator
         configureDataSource()
     }
     
     // MARK: - Setup
     private func setupLayout() {
-        collectionView.registerNib(class: BrandsUMayLikeItemCell.self)
+        collectionView.registerNib(class: SavedItemsItemCell.self)
     }
     
     private func configureDataSource() {
-        viewModel = BrandsUMayLikeViewModel(coordinator: coordinator!)
-        dataSource = BrandsUMayLikeDataSource(with: collectionView, viewModel: viewModel)
-        dataSource.refresh()
+        viewModel = HomeCollectionViewModel(coordinator: coordinator!)
+        dataSource = HomeCollectionViewDataSource(with: collectionView, viewModel: viewModel)
+        dataSource.refreshSavedProducts()
     }
     
     private func setUpCollectionView() {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 170, height: 36)
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.size.width - 40, height: 120)
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 20 , bottom: 0, right: UIScreen.main.bounds.size.width - 20)
-        layout.minimumLineSpacing = 16
+        layout.minimumLineSpacing = 20
         collectionView.collectionViewLayout = layout
         collectionView.isPagingEnabled = true
     }
 }
 
-extension BrandsUMayLikeCell: UICollectionViewDelegateFlowLayout {
+extension SavedItemsCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 170, height: 36)
+        return CGSize(width: UIScreen.main.bounds.size.width - 40, height: 120)
     }
 }

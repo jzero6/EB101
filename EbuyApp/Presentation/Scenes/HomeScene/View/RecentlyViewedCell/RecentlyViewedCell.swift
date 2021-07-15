@@ -7,14 +7,14 @@
 
 import UIKit
 
-class RecentlyViewedCell: UITableViewCell {
+class RecentlyViewedCell: UITableViewCell, TableCellConfigurable  {
 
     @IBOutlet weak var recentlyViewedLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Private Variables
-    private var dataSource: RecentlyViewedDataSource!
-    private var viewModel: RecentlyViewedViewModelProtocol!
+    private var dataSource: HomeCollectionViewDataSource!
+    private var viewModel: HomeCollectionViewModelProtocol!
     var coordinator: CoordinatorProtocol?
     
     override func awakeFromNib() {
@@ -28,7 +28,7 @@ class RecentlyViewedCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(coordinator: CoordinatorProtocol) {
+    func configure(with coordinator: CoordinatorProtocol) {
         self.coordinator = coordinator
         configureDataSource()
     }
@@ -39,9 +39,9 @@ class RecentlyViewedCell: UITableViewCell {
     }
     
     private func configureDataSource() {
-        viewModel = RecentlyViewedViewModel(coordinator: coordinator!)
-        dataSource = RecentlyViewedDataSource(with: collectionView, viewModel: viewModel)
-        dataSource.refresh()
+        viewModel = HomeCollectionViewModel(coordinator: coordinator!)
+        dataSource = HomeCollectionViewDataSource(with: collectionView, viewModel: viewModel)
+        dataSource.refreshRecentlyProducts()
     }
     
     private func setUpCollectionView() {

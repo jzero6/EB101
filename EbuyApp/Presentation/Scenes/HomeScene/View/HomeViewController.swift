@@ -7,11 +7,11 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class HomeViewController: BaseViewController{
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var dataSource: HomeDataSource!
+    private var dataSource: HomeTableViewDataSource!
     private var viewModel:  HomeViewModelProtocol!
     
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class HomeViewController: BaseViewController {
     }
 
     private func setupLayout() {
-        tableView.registerNib(class: NewTrendsCell.self)
+        tableView.registerNib(class: CategoryCell.self)
         tableView.registerNib(class: SomeProductsCell.self)
         tableView.registerNib(class: RecentlyViewedCell.self)
         tableView.registerNib(class: SavedItemsCell.self)
@@ -33,7 +33,7 @@ class HomeViewController: BaseViewController {
     
     private func configureViewModel() {
         viewModel = HomeViewModel(controller: self)
-        dataSource = HomeDataSource(with: tableView, viewModel: viewModel)
+        dataSource = HomeTableViewDataSource(with: tableView, coordinator: self)
         dataSource.refresh()
     }
 }

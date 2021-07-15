@@ -7,7 +7,12 @@
 
 import UIKit
 
-class NewTrendsCell: UITableViewCell {
+struct CategoryCellData {
+    let title: String
+    let imageName: UIImage
+}
+
+class CategoryCell: UITableViewCell, CellConfigurable{
 
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var productImageView: UIImageView!
@@ -22,9 +27,11 @@ class NewTrendsCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(image: UIImage, title: String){
-        productImageView.image = image
-        titleLabel.text = title
+    func configure(with item: CellItem){
+        guard let model = item as? CellViewModel,
+              let data = model.userData[.data] as? CategoryCellData else { return }
+        productImageView.image = data.imageName
+        titleLabel.text = data.title
     }
     
 }
